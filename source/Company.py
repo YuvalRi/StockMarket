@@ -1,3 +1,6 @@
+from binascii import a2b_base64
+
+
 def contains_number(value):
     if True in [char.isdigit() for char in value]:
         return True
@@ -79,22 +82,22 @@ class Company:
         if check_string(comp_type) == False:
             return False
         else:
-            self.set_comp_type = comp_type
+            self.comp_type = comp_type
             return True
 
     def update_net_worth(self, net_worth):
-        if check_int(net_worth) == False:
+        if not check_int(net_worth):
             return False
         else:
-            self.set_stock_price = net_worth/self.set_stocks_num
+            self.stock_price = net_worth / self.stocks_num
             return True
 
     def add_stocks(self, number):
-        new_stock_num = self.set_stocks_num + number
+        new_stock_num = self.stocks_num + number
         if new_stock_num <= 0:
             return False
         else:
-            self.set_stocks_num = new_stock_num
+            self.stocks_num = new_stock_num
             return True
 
     def __str__(self):
@@ -121,7 +124,7 @@ class Company:
     def __add__(self, other):
         new_company = Company(name=self.name,
                               stocks_num=self.stocks_num + other.stocks_num,
-                              stock_price=(self.net_worth()+other.net_worth) /
+                              stock_price=(self.net_worth() + other.net_worth()) /
                               (self.stocks_num + other.stocks_num),
                               comp_type=self.comp_type)
         return new_company
