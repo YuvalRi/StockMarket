@@ -25,9 +25,7 @@ def check_int(val):
     '''
     A function which checks if a given number is int
     '''
-    if isinstance(val, int):
-        return True
-    return False
+    return isinstance(val, int)
 
 
 def check_positive(num: float):
