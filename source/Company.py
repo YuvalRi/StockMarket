@@ -28,16 +28,6 @@ def check_int(val):
     return isinstance(val, int)
 
 
-def check_positive(num: float):
-    '''
-    A function which returns True if the given number
-    is positive and False otherwise
-    '''
-    if num <= 0:
-        return False
-    return True
-
-
 class Company:
     # you can add methods for your usage
 
@@ -48,11 +38,11 @@ class Company:
             raise ValueError("Error! Company name starts with capital letter.")
         else:
             self.name = name
-        if check_positive(stocks_num) is False or check_int(stocks_num) is False:
+        if stocks_num < 0 or check_int(stocks_num) is False:
             raise ValueError("Error! Number of stocks must be positive.")
         else:
             self.stocks_num = stocks_num
-        if not check_positive(stock_price):
+        if stock_price < 0:
             raise ValueError("Error! Price of stock must be positive.")
         else:
             self.stock_price = stock_price
@@ -81,7 +71,7 @@ class Company:
         '''
         Updates the number of stocks, as long as its valid
         '''
-        if check_positive(stocks_num) is False or check_int(stocks_num) is False:
+        if stocks_num < 0 or check_int(stocks_num) is False:
             return False
         else:
             net_worth = self.net_worth()
@@ -93,7 +83,7 @@ class Company:
         '''
         Updates the price of a stock, as long as its valid
         '''
-        if stock_price > self.net_worth() or check_positive(stock_price) is False:
+        if stock_price > self.net_worth() or stock_price < 0:
             return False
         else:
             net_worth = self.net_worth()
@@ -115,7 +105,7 @@ class Company:
         '''
         Updates the networth of the company
         '''
-        if not check_positive(net_worth):
+        if net_worth < 0:
             return False
         else:
             self.stock_price = net_worth / self.stocks_num
