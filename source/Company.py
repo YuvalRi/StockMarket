@@ -73,11 +73,10 @@ class Company:
         '''
         if stocks_num < 0 or check_int(stocks_num) is False:
             return False
-        else:
-            net_worth = self.net_worth()
-            self.stocks_num = stocks_num
-            self.stock_price = net_worth/self.stocks_num
-            return True
+        net_worth = self.net_worth()
+        self.stocks_num = stocks_num
+        self.stock_price = net_worth/self.stocks_num
+        return True
 
     def set_stock_price(self, stock_price):
         '''
@@ -88,18 +87,17 @@ class Company:
         else:
             net_worth = self.net_worth()
             self.stock_price = stock_price
-            self.stocks_num = int(net_worth//self.stock_price)
+            self.stocks_num = int(net_worth/self.stock_price)
             return True
 
     def set_comp_type(self, comp_type):
         '''
         Updates the type of the copmany, as long as its valid
         '''
-        if not valid_name(comp_type):
-            return False
-        else:
+        if valid_name(comp_type):
             self.comp_type = comp_type
             return True
+        return False
 
     def update_net_worth(self, net_worth):
         '''
