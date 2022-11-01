@@ -4,16 +4,11 @@ def contains_number(value: str):
     '''
     A function which checks if a value includes digits
     '''
-    temp = 0
-    for c in value:
-        if c.isdigit():
-            temp += 1
-    if temp == 0:
+    if any(map(str.isdigit, value)):
         return True
     else:
         return False
 
-print(contains_number("Google2"))
 
 def valid_name(str: str):
     '''
