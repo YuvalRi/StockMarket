@@ -1,15 +1,21 @@
 # Company Class exercise
 
-def contains_number(value):
+def contains_number(value: str):
     '''
     A function which checks if a value includes digits
     '''
-    if True in [char.isdigit() for char in value]:
+    temp = 0
+    for c in value:
+        if c.isdigit():
+            temp += 1
+    if temp == 0:
         return True
-    return False
+    else:
+        return False
 
+print(contains_number("Google2"))
 
-def check_string(str: str):
+def valid_name(str: str):
     '''
     A function which checks if the conditions of
     company name are met
@@ -45,7 +51,7 @@ class Company:
     # The constructor function
     def __init__(self, name: str, stocks_num: int,
                  stock_price: float, comp_type: str):
-        if not check_string(name):
+        if not valid_name(name):
             raise ValueError("Error! Company name starts with capital letter.")
         else:
             self.name = name
@@ -57,7 +63,7 @@ class Company:
             raise ValueError("Error! Price of stock must be positive.")
         else:
             self.stock_price = stock_price
-        if not check_string(comp_type):
+        if not valid_name(comp_type):
             raise ValueError("Error! Company type starts with capital letter.")
         else:
             self.comp_type = comp_type
@@ -72,7 +78,7 @@ class Company:
         '''
         Updates the company name, as long as its valid
         '''
-        if name == self.name or check_string(name) is False:
+        if name == self.name or valid_name(name) is False:
             return False
         else:
             self.name = name
@@ -106,7 +112,7 @@ class Company:
         '''
         Updates the type of the copmany, as long as its valid
         '''
-        if not check_string(comp_type):
+        if not valid_name(comp_type):
             return False
         else:
             self.comp_type = comp_type
@@ -127,10 +133,8 @@ class Company:
         The function get int (numeber) and add it
         to the current number of stocks
         '''
-        if check_int(number) is False:
-            return False
         new_stock_num = self.stocks_num + number
-        if new_stock_num <= 0:
+        if check_int(number) is False or new_stock_num <= 0:
             return False
         else:
             self.stocks_num = new_stock_num
@@ -179,6 +183,6 @@ class Company:
         new_company = Company(name=self.name,
                               stocks_num=self.stocks_num + other.stocks_num,
                               stock_price=(self.net_worth() + other.net_worth()) /
-                              (self.stocks_num + other.stocks_num),
+                              self.stocks_num + other.stocks_num,
                               comp_type=self.comp_type)
         return new_company
