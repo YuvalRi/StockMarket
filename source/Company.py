@@ -63,9 +63,8 @@ class Company:
         '''
         if name == self.name or valid_name(name) is False:
             return False
-        else:
-            self.name = name
-            return True
+        self.name = name
+        return True
 
     def set_stocks_num(self, stocks_num):
         '''
