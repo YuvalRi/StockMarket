@@ -15,11 +15,10 @@ def valid_name(str: str):
     A function which checks if the conditions of
     company name are met
     '''
-    if contains_number(str) or len(str) < 2:
+    if str[0].isupper() is False or contains_number(str) or len(str) < 2:
         return False
-    elif str[0].isupper() and len(str) >= 2:
+    elif str[0].isupper() and len(str) >= 2 and str[1:].isupper() is False:
         return True
-
 
 def check_int(val):
     '''
