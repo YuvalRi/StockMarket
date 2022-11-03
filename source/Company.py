@@ -20,6 +20,7 @@ def valid_name(str: str):
     elif str[0].isupper() and len(str) >= 2 and str[1:].isupper() is False:
         return True
 
+
 def check_int(val):
     '''
     A function which checks if a given number is int
@@ -102,11 +103,10 @@ class Company:
         '''
         Updates the networth of the company
         '''
-        if net_worth < 0:
-            return False
-        else:
+        if net_worth > 0:
             self.stock_price = net_worth / self.stocks_num
             return True
+        return False
 
     def add_stocks(self, number):
         '''
