@@ -159,9 +159,9 @@ class Company:
         '''
         Operator overloading which merges two companies into one
         '''
+        stocks_num_both = self.stocks_num + other.stocks_num
         new_company = Company(name=self.name,
                               stocks_num=self.stocks_num + other.stocks_num,
-                              stock_price=(self.net_worth() + other.net_worth()) /
-                              self.stocks_num + other.stocks_num,
+                              stock_price=(self.net_worth() + other.net_worth())/stocks_num_both,
                               comp_type=self.comp_type)
         return new_company
