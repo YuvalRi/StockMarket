@@ -17,8 +17,8 @@ def valid_name(str: str):
     '''
     if str[0].isupper() is False or contains_number(str) or len(str) < 2:
         return False
-    elif str[0].isupper() and len(str) >= 2 and str[1:].isupper() is False:
-        return True
+    # elif str[0].isupper() and len(str) >= 2 and str[1:].isupper() is False:
+    return True
 
 
 def check_int(val):
@@ -159,9 +159,9 @@ class Company:
         '''
         Operator overloading which merges two companies into one
         '''
-        stocks_num_both = self.stocks_num + other.stocks_num
+        total_stocks = self.stocks_num + other.stocks_num
         new_company = Company(name=self.name,
                               stocks_num=self.stocks_num + other.stocks_num,
-                              stock_price=(self.net_worth() + other.net_worth())/stocks_num_both,
+                              stock_price=(self.net_worth() + other.net_worth())/total_stocks,
                               comp_type=self.comp_type)
         return new_company
