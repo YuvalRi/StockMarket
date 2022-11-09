@@ -31,3 +31,4 @@ class StockMarket:
             raise ValueError("Error! Please enter a valid name.")
         if min_net_worth_threshold < 0:
             raise ValueError("Error! Please enter an unnegative number")
+    
