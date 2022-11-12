@@ -8,9 +8,7 @@ def unique_name(lst: list):
     A function which checks if the elements
     in the list are unique
     '''
-    if len(set(lst)) == len(lst):
-        return True
-    return False
+    return len(set(lst)) == len(lst)
 
 
 class StockMarket:
@@ -80,24 +78,16 @@ class StockMarket:
         according to the required conditions
         '''
         if c1 in self.companies and c2 in self.companies:
-            comp_1 = Company(name=c1,
-                             stocks_num=c1.stocks_num,
-                             stock_price=c1.stock_price,
-                             comp_type=c1.comp_type)
-            comp_2 = Company(name=c2,
-                             stocks_num=c2.stocks_num,
-                             stock_price=c2.stock_price,
-                             comp_type=c2.comp_type)
-            new_comp = comp_1 + comp_2
-            if comp_1 == comp_2:
-                new_comp.name = comp_1.name
-            if comp_1 > comp_2:
-                new_comp.name = comp_1.name
+            new_comp = c1 + c2
+            if c1 == c2:
+                new_comp.name = c1.name
+            if c1 > c2:
+                new_comp.name = c1.name
             else:
-                new_comp.name = comp_2.name
+                new_comp.name = c2.name
             self.companies.append(new_comp)
-            self.companies.clear(comp_1)
-            self.companies.clear(comp_2)
+            self.companies.clear(c1)
+            self.companies.clear(c2)
             return new_comp
         return None
 
