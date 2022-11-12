@@ -4,11 +4,7 @@ def contains_number(value: str):
     '''
     A function which checks if a value includes digits
     '''
-    if any(map(str.isdigit, value)):
-        return True
-    else:
-        return False
-
+    return any(map(str.isdigit, value))
 
 def valid_name(str: str):
     '''
@@ -17,15 +13,7 @@ def valid_name(str: str):
     '''
     if str[0].isupper() is False or contains_number(str) or len(str) < 2:
         return False
-    # elif str[0].isupper() and len(str) >= 2 and str[1:].isupper() is False:
     return True
-
-
-def check_int(val):
-    '''
-    A function which checks if a given number is int
-    '''
-    return isinstance(val, int)
 
 
 class Company:
@@ -38,7 +26,7 @@ class Company:
             raise ValueError("Error! Company name starts with capital letter.")
         else:
             self.name = name
-        if stocks_num < 0 or check_int(stocks_num) is False:
+        if stocks_num < 0 or isinstance(stocks_num, int) is False:
             raise ValueError("Error! Number of stocks must be positive.")
         else:
             self.stocks_num = stocks_num
@@ -70,7 +58,7 @@ class Company:
         '''
         Updates the number of stocks, as long as its valid
         '''
-        if stocks_num < 0 or check_int(stocks_num) is False:
+        if stocks_num < 0 or isinstance(stocks_num, int) is False:
             return False
         net_worth = self.net_worth()
         self.stocks_num = stocks_num
@@ -113,7 +101,7 @@ class Company:
         to the current number of stocks
         '''
         new_stock_num = self.stocks_num + number
-        if check_int(number) is False or new_stock_num <= 0:
+        if isinstance(number, int) is False or new_stock_num <= 0:
             return False
         else:
             self.stocks_num = new_stock_num
