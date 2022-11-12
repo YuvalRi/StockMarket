@@ -79,12 +79,10 @@ class StockMarket:
         '''
         if c1 in self.companies and c2 in self.companies:
             new_comp = c1 + c2
-            if c1 == c2:
-                new_comp.name = c1.name
-            if c1 > c2:
-                new_comp.name = c1.name
+            if c1 >= c2:
+                new_comp.set_name(c1)
             else:
-                new_comp.name = c2.name
+                new_comp.set_name(c2)
             self.companies.append(new_comp)
             self.companies.clear(c1)
             self.companies.clear(c2)
