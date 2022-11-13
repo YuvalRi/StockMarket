@@ -78,7 +78,6 @@ class StockMarket:
         according to the required conditions
         '''
         if c1 in self.companies and c2 in self.companies:
-            new_comp = c1 + c2
             if c1 >= c2:
                 new_comp = c1 + c2
             else:
