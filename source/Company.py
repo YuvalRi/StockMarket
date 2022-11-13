@@ -43,16 +43,13 @@ class Company:
         '''
         Net worth of a company: as simple as that
         '''
-        return self.stock_price*self.stocks_num
+        pass
 
     def set_name(self, name):
         '''
         Updates the company name, as long as its valid
         '''
-        if name == self.name or valid_name(name) is False:
-            return False
-        self.name = name
-        return True
+        pass
 
     def set_stocks_num(self, stocks_num):
         '''
@@ -69,31 +66,19 @@ class Company:
         '''
         Updates the price of a stock, as long as its valid
         '''
-        if stock_price > self.net_worth() or stock_price < 0:
-            return False
-        else:
-            net_worth = self.net_worth()
-            self.stock_price = stock_price
-            self.stocks_num = int(net_worth/self.stock_price)
-            return True
+        pass
 
     def set_comp_type(self, comp_type):
         '''
         Updates the type of the copmany, as long as its valid
         '''
-        if valid_name(comp_type):
-            self.comp_type = comp_type
-            return True
-        return False
+        pass
 
     def update_net_worth(self, net_worth):
         '''
         Updates the networth of the company
         '''
-        if net_worth > 0:
-            self.stock_price = net_worth / self.stocks_num
-            return True
-        return False
+        pass
 
     def add_stocks(self, number):
         '''
@@ -111,29 +96,25 @@ class Company:
         '''
         A string with all the required data of the company
         '''
-        return f"{self.name}, {self.stocks_num} stocks, Price: {self.stock_price}, {self.comp_type}, Net Worth: {self.net_worth()}"
+        pass
 
     def __repr__(self):
         '''
         A string with all the required data of the company
         '''
-        return f"{self.name}, {self.stocks_num} stocks, Price: {self.stock_price}, {self.comp_type}, Net Worth: {self.net_worth()}"
+        pass
 
     def __lt__(self, other):
         '''
         Operator overloading - less than
         '''
-        if self.net_worth() < other.net_worth():
-            return True
-        return False
+        pass
 
     def __gt__(self, other):
         '''
         Operator overloading - greater than
         '''
-        if self.net_worth() > other.net_worth():
-            return True
-        return False
+        pass
 
     def __eq__(self, other):
         '''

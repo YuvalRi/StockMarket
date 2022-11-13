@@ -3,3 +3,5 @@ venv
 .vscode
 __pycache__
 *.pyc
+Company.cpython-310.pyc
+*.json
