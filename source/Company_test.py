@@ -7,8 +7,7 @@ c1 = Company("Google", 1000, 20.284, "High Tech")
  
  # test net_worth method 
 def test_net_worth():
-    net_worth = c1.net_worth()
-    assert net_worth == 20284.0
+    assert c1.net_worth() == 20284.0
 
 # test set_name method 
 def test_set_name_1():
@@ -40,13 +39,11 @@ def test_update_net_worth_1():
     assert test_updated_net_worth == False
 
 def test_update_net_worth_2():
-    test_updated_net_worth = c1.update_net_worth(2027.5)
-    assert test_updated_net_worth == True
+    assert c1.update_net_worth(2027.5) is True
 
 # test_add_stocks method
 def test_add_stocks_1():
-    added_stocks = c1.add_stocks(-850)
-    assert added_stocks == False
+    assert c1.add_stocks(-850) is False
 
 def test_add_stocks_2():
     added_stocks = c1.add_stocks(8000)

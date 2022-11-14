@@ -89,26 +89,8 @@ class StockMarket:
             else:
                 new_comp = c2 + c1
             self.companies.append(new_comp)
-            self.companies.clear(c1)
-            self.companies.clear(c2)
-        return None
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+            self.companies.remove(c1)
+            self.companies.remove(c2)
+        else:
+            return None
 
