@@ -71,10 +71,10 @@ class StockMarket:
         if len(self.companies) == 0:
             return self.companies
         else:
-            sorted_companies = self.companies.sort(reverse=True)
+            sorted_list = sorted(self.companies, reverse=True)
             if n > len(self.companies):
-                return sorted_companies
-            return sorted_companies[:n]
+                return sorted_list
+            return sorted_list[:n]
 
     def merger(self, c1, c2):
         '''
