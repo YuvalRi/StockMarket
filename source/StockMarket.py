@@ -35,7 +35,11 @@ class StockMarket:
         if not unique_name(companies):
             raise ValueError("Error! Each company has a unique name.")
         else:
-            self.companies = companies
+            self.companies = []
+            for j in range(len(companies)):
+                for i in range(len(stock_market_types)):
+                    if companies[j].comp_type in stock_market_types[i]:
+                        self.companies.append(companies[j])
 
     def market_net_worth(self, comp_type: str):
         '''
@@ -86,6 +90,13 @@ class StockMarket:
             self.companies.clear(c1)
             self.companies.clear(c2)
         return None
+
+
+
+
+
+
+
 
 
 
