@@ -8,8 +8,10 @@ def unique_name(lst: list):
     A function which checks if the elements
     in the list are unique
     '''
-    return len(set(lst)) == len(lst)
-
+    for company in lst:
+        if lst.count(company) > 1:
+            return False
+    return True
 
 class StockMarket:
 

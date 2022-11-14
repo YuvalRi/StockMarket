@@ -34,5 +34,3 @@ print(new_c)
 for company in stock_market.companies:
     print(company)
 
-if __name__ == "__main__":
-    main()
