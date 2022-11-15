@@ -1,10 +1,16 @@
-In this assignment I created a system which simulates a stock market. Stock Market (StockMarket) composed of some companies (Company). The system enables the user to insert and remove companies from stock market and to make different actions.
+# **Stock Market**
 
-'Company' class includes required methods and represents a specific company.
+## Project summary
+In this project I created a system which simulates a stock market. The stock market composed of some companies. The system enables the user to insert and remove companies from the stock market and to make different actions.
 
-'StockMarket' class represents the whole stock market that contains list of companies.
+##  About the Classes
+Two classes created to implement the system idea:
 
-The code also contains tests for each class. The goal of these tests is to make sure that all the functions in both classes are correct and valid such that all the required actions are available. These tests done by using 'pytest'.
+1. *Company* - This class includes the required methods and represents a specific company.
 
+2. *StockMarket* - This class represents the whole stock market which contains a list of companies.
+
+## Tests
+In order to check the correctness of all the functions in both classes, I did a tests for each function by using 'pytest' testing tool.
 
 
