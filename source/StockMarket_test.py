@@ -15,26 +15,42 @@ stock_market = StockMarket("Nasdaq",
                             ["High Tech", "Hardware"],
                             companies=[c1, c2, c3, c4])
 
-# for company in stock_market.companies:
-#     print(company)
+# test creation of StockMarket instance
+def test_stockmarket_instance():
+    assert len(stock_market.companies) == 2
+    assert stock_market.companies[0] == c1
+    assert stock_market.companies[1] == c4
 
-# print("2. test insert method:")
-# c5 = Company("Microsoft", 5000, 15.565, "High Tech")
-# print(stock_market.insert(c5))
-# for company in stock_market.companies:
-#     print(company)
+# create new company
+c5 = Company("Microsoft", 5000, 15.565, "High Tech")
 
-# print("3. test market_net_worth method:")
-# print(stock_market.market_net_worth("High Tech"))
-# print(stock_market.market_net_worth("Pharmaceutical"))
+# test insert method
+def test_insert():
+    assert stock_market.insert(c5) == True
+    assert len(stock_market.companies) == 3
+    assert stock_market.companies[2] == c5
 
-# print("4. test top_n method:")
-# top_n_companies = stock_market.top_n(2)
-# for company in top_n_companies:
-#     print(company)
+# test market net worth method:
 
-# print("5. test merger method:")
-# new_c = stock_market.merger(c4, c5)
-# print(new_c)
-# for company in stock_market.companies:
-#     print(company)
+def test_net_worth1():
+    assert stock_market.market_net_worth("High Tech") == 98109.0
+    assert stock_market.market_net_worth("Pharmaceutical") == 0
+
+# test top_n method:
+def test_top_n():
+    top_n_companies = stock_market.top_n(2)
+    assert top_n_companies[0] == c5
+    assert top_n_companies[1] == c4
+
+# create new company
+c6 = Company("Microsoft", 10000, 12.9825, "High Tech")
+
+# test merger method:
+def test_merger():
+    assert len(stock_market.companies) == 3
+    new_comp = stock_market.merger(c4, c5)
+    assert new_comp is not None
+    assert new_comp == c6
+    assert stock_market.companies[0] == c1
+    assert stock_market.companies[1] == c6
+

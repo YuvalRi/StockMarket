@@ -42,7 +42,7 @@ class StockMarket:
                 for i in range(len(stock_market_types)):
                     curr_comp = companies[j]
                     cond_1 = curr_comp.comp_type in stock_market_types[i]
-                    cond_2 = curr_comp.networth() > min_net_worth_threshold
+                    cond_2 = curr_comp.net_worth() > min_net_worth_threshold
                     if cond_1 and cond_2:
                         self.companies.append(companies[j])
 
@@ -94,6 +94,7 @@ class StockMarket:
             self.companies.append(new_comp)
             self.companies.remove(c1)
             self.companies.remove(c2)
+            return new_comp
         else:
             return None
 

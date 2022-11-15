@@ -5,7 +5,7 @@ from Company import Company
 # create Company instance
 c1 = Company("Google", 1000, 20.284, "High Tech")
  
- # test net_worth method 
+# test net_worth method 
 def test_net_worth():
     assert c1.net_worth() == 20284.0
 
