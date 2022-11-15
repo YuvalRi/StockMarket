@@ -55,8 +55,8 @@ def test_add_stocks_2():
 
 # test Operator Overloading
 
-# create a new company ('other')
 
+# create a new company ('other')
 c2 = Company("Lenovo", 1000, 5, "High Tech")
 
 
