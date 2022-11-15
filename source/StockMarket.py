@@ -40,7 +40,10 @@ class StockMarket:
             self.companies = []
             for j in range(len(companies)):
                 for i in range(len(stock_market_types)):
-                    if companies[j].comp_type in stock_market_types[i]:
+                    curr_comp = companies[j]
+                    cond_1 = curr_comp.comp_type in stock_market_types[i]
+                    cond_2 = curr_comp.networth() > min_net_worth_threshold
+                    if cond_1 and cond_2:
                         self.companies.append(companies[j])
 
     def market_net_worth(self, comp_type: str):
