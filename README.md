@@ -60,4 +60,23 @@ The StockMarket class API includes the following functions:
 ## Tests
 In order to check the correctness of all the functions in both classes, I did a tests for each function by using 'pytest' testing tool.
 
+Examples:
 
+```
+c1 = Company("Google", 1000, 20.284, "High Tech")
+
+# test net_worth method
+def test_net_worth():
+    assert c1.net_worth() == 20284.0
+
+
+``` 
+```
+c5 = Company("Microsoft", 5000, 15.565, "High Tech")
+
+# test insert method
+def test_insert():
+    assert stock_market.insert(c5) is True
+    assert len(stock_market.companies) == 3
+    assert stock_market.companies[2] == c5
+```
