@@ -7,10 +7,10 @@ In this project I simulated stock market using two classes. The stock market cla
 
 ### Company class
 The company class is described using the following fields: 
-* *name* - represents the name of the company. The type of this field is string. 
-* *stocks_num* - represents the number of company's stocks. The type of this field is integer. 
-* *stock_price* - represents the price of one stock. The type of this field is integer or float.
-* *comp_type* - represents the type of the company. For example: High Tech, Pharmaceutical, Hardware, etc. The type of this field is string. 
+* **name** - represents the name of the company. The type of this field is string. 
+* **stocks_num** - represents the number of company's stocks. The type of this field is integer. 
+* **stock_price** - represents the price of one stock. The type of this field is integer or float.
+* **comp_type** - represents the type of the company. For example: High Tech, Pharmaceutical, Hardware, etc. The type of this field is string. 
 
 The company class API includes the following functions:
 
@@ -41,7 +41,21 @@ For example:
 * *__add__* - operator overloading to the addition operator (+). This function merges two different companies to new one company. 
 
 ### StockMarket class
-2. *StockMarket* - This class represents the whole stock market which contains a list of companies.
+The StockMarket class is described using the following fields: 
+* **name** - represents the name of the stock market. The type of this field is string. 
+* **min_net_worth_threshold** - represents the minimum threshold of company to be a part of the stock market. The type of this field is integer. 
+* **stock_market_types** - represents the company types that can be a part of the stock market. The type of this field is a list of strings.
+* **companies** - list with elements of company type. The list represents the different companies traded in the stock market.
+
+The StockMarket class API includes the following functions:
+
+* *market_net_worth* - calculates the net worth of all the companies of comp_type in the stock market. 
+
+* *insert* - adds a company to the list of companies in the stock market.
+
+* *top_n* - returns sorted list of n companies whose have the highest new worth. 
+
+* *merger* - merges between two companies. 
 
 ## Tests
 In order to check the correctness of all the functions in both classes, I did a tests for each function by using 'pytest' testing tool.
