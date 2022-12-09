@@ -14,31 +14,32 @@ The company class is described using the following fields:
 
 The company class API includes the following functions:
 
-* *net_worth* - calculates the company's net worth. 
+* *net_worth* - the function calculates the company's net worth. 
 
-* *set_name* - updates the name of the company
+* *set_name* - the function receives a string and updates the name of the company accordingly. If an update occured, the function returns True. Otherwise, it will return False.
 
-* *set_stocks_num* - updates the number of company's stocks. 
+* *set_stocks_num* - the function receives the number of company's stocks and updates it accordingly. If an update occured, the function will return True. Otherwise, it will return False.
 
-* *set_stocks_price* - updates the price of company's stock.
+* *set_stocks_price* - the function receives the price of a stock and and updates it accordingly. If an update occured, the function will return True. Otherwise, it will return False.
 
-* *set_comp_type* - updates the company type.
+* *set_comp_type* - the function receives the type of the company and updates it accordingly. If an update occured, the function will return True. Otherwise, it will return False.
 
-* *update_net_worth* - updates the company's net worth such that number of stocks stay the same and the price of a stock changed. 
+* *update_net_worth* - the function receives net worth and update it such that number of stocks kept but the price of a stock change. If an update occured, the function will return True. Otherwise, it will return False.
 
-* *add_stocks* - addes a number to the current number of stocks. 
+* *add_stocks* - the function receives an integer and add it to the current number of stocks. 
 
-* *__repr__* - magic function which returns information about the company. 
-For example: 
+* *__repr__* - the function returns the following string:
     
-        "NVIDIA Corporation, 1000 stocks, 
-         Price: 20.284, High Tech, Net Worth: 20284.0"
+        "{NVIDIA Corporation}, {1000} stocks, 
+         Price: {20.284}, {High Tech}, Net Worth: {20284.0}"
 
-* *__lt__*, *__gt__*, *__eq__* - operator overloading: 
+* *__lt__*, *__gt__*, *__eq__* - operator overloading that compares between two companies's net worth: 
 
     lt = less than, gt = greate than, eq = equal to 
+for example:
+for companies A and B with net worth of: 200.2 and 600.5 respectively, when calculating B > A, the function __gt__ returns True because the net work of B company is bigger than A net worth.
 
-* *__add__* - operator overloading to the addition operator (+). This function merges two different companies to new one company. 
+* *__add__* - operator overloading to the addition operator (+). This function recieves a company and merge it with the current company such that it will create a new company. 
 
 ### StockMarket class
 The StockMarket class is described using the following fields: 
@@ -49,13 +50,13 @@ The StockMarket class is described using the following fields:
 
 The StockMarket class API includes the following functions:
 
-* *market_net_worth* - calculates the net worth of all the companies of comp_type in the stock market. 
+* *market_net_worth* - the function recieves a company type and calculates the net worth of all the companies of comp type in the stock market. 
 
-* *insert* - adds a company to the list of companies in the stock market.
+* *insert* - the function recieves a company (c) andd add it to the list of companies in the stock market.
 
-* *top_n* - returns sorted list of n companies whose have the highest new worth. 
+* *top_n* - the function recieves an integer 'n' and returns sorted list of 'n' companies whose have the highest new worth. 
 
-* *merger* - merges between two companies. 
+* *merger* - the function recieves two companies (c1 and c2) and merge between them.
 
 ## Tests
 In order to check the correctness of all the functions in both classes, I did a tests for each function by using 'pytest' testing tool.
