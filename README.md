@@ -28,10 +28,12 @@ The company class API includes the following functions:
 
 * *add_stocks* - the function receives an integer and add it to the current number of stocks. 
 
-* *__repr__* - the function returns the following string:
+* *__repr__* - the function returns a string describing the class fields: 
+
+    *f"{self.name}, {self.stocks_num} stocks, 
+         Price: {self.stock_price}, {self.comp_type}, Net Worth: {self.net_worth}"*
     
-        "{NVIDIA Corporation}, {1000} stocks, 
-         Price: {20.284}, {High Tech}, Net Worth: {20284.0}"
+        
 
 * *__lt__*, *__gt__*, *__eq__* - operator overloading that compares between two companies's net worth: 
 
