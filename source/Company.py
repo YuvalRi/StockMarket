@@ -139,6 +139,8 @@ class Company:
         '''
         Operator overloading - equal to
         '''
+        # print(self.name," -> ", self.net_worth())
+        # print(other.name," -> ", other.net_worth())
         if self.net_worth() == other.net_worth():
             return True
         return False
